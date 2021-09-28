@@ -479,6 +479,9 @@ function DataToColor:CreateFrames(n)
     end
     -- Function used to generate a single frame
     local function setFramePixelBackdrop(f)
+	if not f.SetBackdrop then
+	    Mixin(f, BackdropTemplateMixin)
+	end
         f:SetBackdrop({
             bgFile = "Interface\\AddOns\\DataToColor\\white.tga",
             insets = {top = 0, left = 0, bottom = 0, right = 0},
